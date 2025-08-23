@@ -331,7 +331,9 @@ To be included, models should be:
 
 ## 📝 License
 
-This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This repository is licensed under the Creative Commons Attribution 4.0 International Public License. See [LICENSE](LICENSE) for details.
+
+© Jehoshua 2025
 
 ---
 
