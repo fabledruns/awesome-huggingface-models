@@ -1,122 +1,133 @@
-# 📦 Hugging Face Models
+# Hugging Face Models
 
 > Complete list of models featured in the Awesome Hugging Face Models repository.
 
 ---
 
-## 🔤 Natural Language Processing
+## Natural Language Processing
 
-### 🧠 Large Language Models
-- microsoft/DialoGPT-large  
-- EleutherAI/gpt-j-6B  
-- bigscience/bloom-7b1  
-- meta-llama/Llama-2-7b-chat-hf  
-- mistralai/Mixtral-8x7B-Instruct-v0.1  
+### Large Language Models
+- meta-llama/Llama-4-Scout-17B-16E-Instruct
+- meta-llama/Llama-4-Maverick-17B-128E-Instruct
+- meta-llama/Meta-Llama-3.3-70B-Instruct
+- deepseek-ai/DeepSeek-V3
+- Qwen/Qwen3-32B
+- Qwen/Qwen2.5-72B-Instruct
+- mistralai/Mixtral-8x22B-Instruct-v0.1
+- mistralai/Mistral-7B-Instruct-v0.3
+- google/gemma-3-9b-it
 
-### 🗂️ Text Classification
-- cardiffnlp/twitter-roberta-base-sentiment-latest  
-- facebook/bart-large-mnli  
-- martin-ha/toxic-comment-model  
+### Reasoning Models
+- deepseek-ai/DeepSeek-R1
+- deepseek-ai/DeepSeek-R1-Distill-Qwen-32B
+- deepseek-ai/DeepSeek-R1-Distill-Llama-8B
 
-### 🏷️ Named Entity Recognition
-- dbmdz/bert-large-cased-finetuned-conll03-english  
-- xlm-roberta-large-finetuned-conll03-english  
+### Text Classification
+- cardiffnlp/twitter-roberta-base-sentiment-latest
+- facebook/bart-large-mnli
+- unitary/toxic-bert
 
-### ❓ Question Answering
-- deepset/roberta-base-squad2  
-- microsoft/DialoGPT-medium  
+### Named Entity Recognition
+- dbmdz/bert-large-cased-finetuned-conll03-english
+- xlm-roberta-large-finetuned-conll03-english
 
-### 📰 Text Summarization
-- facebook/bart-large-cnn  
-- google/pegasus-xsum  
-- sshleifer/distilbart-cnn-12-6  
+### Question Answering
+- deepset/roberta-base-squad2
+- deepset/deberta-v3-base-squad2
 
-### 🌐 Translation
-- Helsinki-NLP/opus-mt-en-de  
-- facebook/m2m100_418M  
-- google/mt5-large  
+### Text Summarization
+- facebook/bart-large-cnn
+- google/pegasus-xsum
+- sshleifer/distilbart-cnn-12-6
 
-### 💻 Code Generation
-- Salesforce/codegen-350M-mono  
-- microsoft/CodeBERT-base  
-- codeparrot/codeparrot  
+### Translation
+- facebook/m2m100_418M
+- facebook/seamless-m4t-v2-large
+- google/mt5-large
 
----
-
-## 🖼️ Computer Vision
-
-### 🧩 Image Classification
-- google/vit-base-patch16-224  
-- microsoft/resnet-50  
-- google/efficientnet-b7  
-
-### 🎯 Object Detection
-- facebook/detr-resnet-50  
-- hustvl/yolos-tiny  
-
-### ✂️ Image Segmentation
-- facebook/detr-resnet-50-panoptic  
-- nvidia/segformer-b5-finetuned-ade-640-640  
-
-### 🖌️ Image Generation
-- runwayml/stable-diffusion-v1-5  
-- CompVis/stable-diffusion-v1-4  
-- prompthero/openjourney  
-
-### 🔠 Optical Character Recognition
-- microsoft/trocr-base-printed  
-- microsoft/trocr-large-handwritten  
+### Code Models
+- deepseek-ai/DeepSeek-Coder-V2-Instruct
+- Qwen/Qwen2.5-Coder-32B-Instruct
+- bigcode/starcoder2-15b
+- microsoft/CodeBERT-base
 
 ---
 
-## 🎵 Audio Processing
+## Computer Vision
 
-### 🗣️ Speech Recognition
-- openai/whisper-large-v2  
-- facebook/wav2vec2-large-960h-lv60-self  
-- jonatasgrosman/wav2vec2-large-xlsr-53-english  
+### Image Classification
+- google/vit-base-patch16-224
+- microsoft/resnet-50
+- google/efficientnet-b7
 
-### 🔊 Text-to-Speech
-- microsoft/speecht5_tts  
-- espnet/kan-bayashi_ljspeech_vits  
+### Object Detection
+- facebook/detr-resnet-50
+- IDEA-Research/GroundingDINO
 
-### 🎧 Audio Classification
-- MIT/ast-finetuned-audioset-10-10-0.4593  
-- superb/wav2vec2-base-superb-er  
+### Image Segmentation
+- facebook/detr-resnet-50-panoptic
+- nvidia/segformer-b5-finetuned-ade-640-640
 
-### 🎼 Music Generation
-- facebook/musicgen-small  
-- facebook/musicgen-melody  
+### Image Generation
+- black-forest-labs/FLUX.1-dev
+- stabilityai/stable-diffusion-3-medium
 
----
-
-## 🔀 Multimodal
-
-### 🖼️+📝 Vision-Language
-- Salesforce/blip-image-captioning-large  
-- Salesforce/blip-vqa-base  
-- microsoft/git-large-coco  
-- openai/clip-vit-large-patch14  
-
-### 🎵+📝 Audio-Text
-- laion/clap-htsat-unfused  
+### Optical Character Recognition
+- microsoft/trocr-base-printed
+- microsoft/trocr-large-handwritten
 
 ---
 
-## 🏆 Featured Models
+## Audio
 
-### 🌟 Most Popular
-- bert-base-uncased  
-- gpt2  
-- distilbert-base-uncased  
-- openai/clip-vit-base-patch32  
+### Speech Recognition
+- openai/whisper-large-v3
+- distil-whisper/distil-large-v3
+- facebook/seamless-m4t-v2-large
 
-### 🚀 State-of-the-Art
-- openai/whisper-large-v2  
-- runwayml/stable-diffusion-v1-5  
-- facebook/musicgen-large  
-- mistralai/Mixtral-8x7B-Instruct-v0.1  
+### Text-to-Speech
+- microsoft/speecht5_tts
+- suno/bark
+
+### Audio Classification
+- MIT/ast-finetuned-audioset-10-10-0.4593
+- superb/wav2vec2-base-superb-er
+
+### Music Generation
+- facebook/musicgen-large
+- facebook/musicgen-stereo-large
 
 ---
 
-© Jehoshua 2025
+## Multimodal
+
+### Vision-Language
+- meta-llama/Llama-4-Scout-17B-16E-Instruct
+- Qwen/Qwen2.5-VL-72B-Instruct
+- microsoft/Florence-2-large
+- openai/clip-vit-large-patch14
+- Salesforce/blip-image-captioning-large
+
+### Audio-Text
+- laion/clap-htsat-unfused
+
+---
+
+## Featured Models
+
+### Most Downloaded
+- bert-base-uncased
+- gpt2
+- distilbert-base-uncased
+- openai/clip-vit-base-patch32
+
+### State-of-the-Art (2026)
+- deepseek-ai/DeepSeek-R1
+- deepseek-ai/DeepSeek-V3
+- black-forest-labs/FLUX.1-dev
+- openai/whisper-large-v3
+- Qwen/Qwen2.5-VL-72B-Instruct
+
+---
+
+© Jehoshua 2026
