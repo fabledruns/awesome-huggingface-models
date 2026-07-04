@@ -5,7 +5,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![GitHub stars](https://img.shields.io/github/stars/JehoshuaM/awesome-huggingface-models.svg?style=social)](https://github.com/JehoshuaM/awesome-huggingface-models/stargazers)
 
-This repo highlights **production-ready**, **state-of-the-art**, and **community-trusted** models on the Hugging Face Hub. Models are grouped by task with short descriptions so you can pick fast. Updated through June 2026 to include GPT-OSS, DeepSeek V3.2, Kimi K2, GLM-4.6, Qwen3-Coder, FLUX.1-Kontext, and other recent drops.
+This repo highlights **production-ready**, **state-of-the-art**, and **community-trusted** models on the Hugging Face Hub. Models are grouped by task with short descriptions so you can pick fast. Updated through July 2026 to include GPT-OSS, DeepSeek V3.2, Kimi K2, GLM-4.6, Qwen3-Coder, FLUX.1-Kontext, and other recent drops.
 
 ---
 
@@ -16,20 +16,30 @@ This repo highlights **production-ready**, **state-of-the-art**, and **community
   - [Reasoning Models](#reasoning-models)
   - [Text Classification](#text-classification)
   - [Named Entity Recognition](#named-entity-recognition)
+  - [Question Answering](#question-answering)
   - [Summarization](#summarization)
   - [Translation](#translation)
   - [Code Models](#code-models)
   - [Embeddings](#embeddings)
   - [Reranking](#reranking)
 - [Computer Vision](#computer-vision)
+  - [Image Classification](#image-classification)
   - [Image Generation](#image-generation)
   - [Image Editing](#image-editing)
   - [Video Generation](#video-generation)
   - [Vision Tasks](#vision-tasks)
 - [Audio](#audio)
+  - [Speech Recognition](#speech-recognition)
+  - [Text-to-Speech](#text-to-speech)
+  - [Audio Classification](#audio-classification)
+  - [Music Generation](#music-generation)
 - [Multimodal](#multimodal)
-- [Recommended Picks (Mid 2026)](#recommended-picks-mid-2026)
+  - [Vision-Language](#vision-language)
+  - [Audio-Text](#audio-text)
+- [Featured Models](#featured-models)
+- [Recommended Picks (July 2026)](#recommended-picks-july-2026)
 - [Snippets](#snippets)
+- [Standalone Snippet Files](#standalone-snippet-files)
 - [Common Mistakes](#common-mistakes)
 - [Contributing](#contributing)
 - [License](#license)
@@ -55,6 +65,7 @@ This repo highlights **production-ready**, **state-of-the-art**, and **community
 | [meta-llama/Llama-4-Scout-17B-16E-Instruct](https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct) | Fast multimodal instruction model, good for chat and agents | 17B MoE |
 | [meta-llama/Llama-4-Maverick-17B-128E-Instruct](https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct) | Stronger Llama 4 variant, handles text plus structured data | 17B MoE |
 | [meta-llama/Meta-Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.3-70B-Instruct) | Clean structured output, solid everyday reasoning | 70B |
+| [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) | Widely-deployed lightweight Llama, still a strong edge default | 8B |
 | [google/gemma-3-27b-it](https://huggingface.co/google/gemma-3-27b-it) | Larger Gemma 3, stronger reasoning than 9B | 27B |
 | [google/gemma-3-9b-it](https://huggingface.co/google/gemma-3-9b-it) | Lightweight, low resource, great for edge/local | 9B |
 | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) | Mobile-first Gemma, runs on phones and laptops | ~4B active |
@@ -98,6 +109,17 @@ This repo highlights **production-ready**, **state-of-the-art**, and **community
 | [dbmdz/bert-large-cased-finetuned-conll03-english](https://huggingface.co/dbmdz/bert-large-cased-finetuned-conll03-english) | English |
 | [xlm-roberta-large-finetuned-conll03-english](https://huggingface.co/xlm-roberta-large-finetuned-conll03-english) | Multilingual |
 | [dslim/bert-base-NER](https://huggingface.co/dslim/bert-base-NER) | English, lightweight |
+
+---
+
+### Question Answering
+
+| Model | Best For |
+|-------|---------|
+| [deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2) | Extractive QA, English, strong baseline |
+| [deepset/deberta-v3-base-squad2](https://huggingface.co/deepset/deberta-v3-base-squad2) | DeBERTa-v3 backbone, better long-context QA |
+
+For open-ended QA, prefer an instruction-tuned LLM (Qwen3, GPT-OSS, DeepSeek-V3.2). They handle multi-hop and ambiguous questions far better than extractive models.
 
 ---
 
@@ -145,11 +167,12 @@ For modern use, prefer an instruction-tuned LLM (Qwen3, GPT-OSS, DeepSeek-V3.2).
 | [Alibaba-NLP/gte-modernbert-base](https://huggingface.co/Alibaba-NLP/gte-modernbert-base) | Fast, ModernBERT-based, long context, English |
 | [nomic-ai/nomic-embed-text-v2-moe](https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe) | Multilingual MoE, ~100 languages, open weights |
 | [BAAI/bge-multilingual-gemma2](https://huggingface.co/BAAI/bge-multilingual-gemma2) | LLM-based, strong multilingual retrieval |
+| [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3) | Multilingual, multi-granularity (dense, sparse, multi-vector) |
 | [intfloat/multilingual-e5-large-instruct](https://huggingface.co/intfloat/multilingual-e5-large-instruct) | Solid multilingual baseline |
 | [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Tiny, fast, still great for cheap RAG |
 | [dunzhang/stella_en_v5_instruct](https://huggingface.co/dunzhang/stella_en_v5_instruct) | English, instruction-tuned, top MTEB scores |
 
-Pick MiniLM if you need speed and low memory. Pick gte-modernbert for a balanced default. Pick nomic-embed-v2 or bge-multilingual-gemma2 when you need multilingual coverage.
+Pick MiniLM if you need speed and low memory. Pick gte-modernbert for a balanced default. Pick nomic-embed-v2 or bge-multilingual-gemma2 when you need multilingual coverage. Pick bge-m3 if you want hybrid dense+sparse retrieval in a single model.
 
 ---
 
@@ -167,6 +190,14 @@ A two-stage retrieve-then-rerank pipeline (embedding recall top-50, reranker top
 ---
 
 ## Computer Vision
+
+### Image Classification
+
+| Model | Architecture |
+|-------|-------------|
+| [google/vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224) | Vision Transformer baseline, ImageNet-1K |
+| [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50) | Classic ResNet, still a solid default |
+| [google/efficientnet-b7](https://huggingface.co/google/efficientnet-b7) | High-accuracy EfficientNet, heavier |
 
 ### Image Generation
 
@@ -199,8 +230,9 @@ A two-stage retrieve-then-rerank pipeline (embedding recall top-50, reranker top
 | Model | Task |
 |-------|------|
 | [facebook/detr-resnet-50](https://huggingface.co/facebook/detr-resnet-50) | Object detection |
+| [facebook/detr-resnet-50-panoptic](https://huggingface.co/facebook/detr-resnet-50-panoptic) | Panoptic segmentation |
 | [IDEA-Research/GroundingDINO](https://huggingface.co/IDEA-Research/GroundingDINO) | Open-vocab detection |
-| [nvidia/segformer-b5-finetuned-ade-640-640](https://huggingface.co/nvidia/segformer-b5-finetuned-ade-640-640) | Segmentation |
+| [nvidia/segformer-b5-finetuned-ade-640-640](https://huggingface.co/nvidia/segformer-b5-finetuned-ade-640-640) | Semantic segmentation |
 | [google/siglip2-so400m-patch16-naflex](https://huggingface.co/google/siglip2-so400m-patch16-naflex) | Image-text similarity, better than CLIP |
 | [microsoft/trocr-base-printed](https://huggingface.co/microsoft/trocr-base-printed) | Printed OCR |
 | [microsoft/trocr-large-handwritten](https://huggingface.co/microsoft/trocr-large-handwritten) | Handwritten OCR |
@@ -209,21 +241,45 @@ A two-stage retrieve-then-rerank pipeline (embedding recall top-50, reranker top
 
 ## Audio
 
-| Model | Task |
-|-------|------|
+### Speech Recognition
+
+| Model | Description |
+|-------|-------------|
 | [openai/whisper-large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo) | Faster Whisper Large v3, 8x speedup, near-identical accuracy |
 | [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3) | Best open ASR, full quality |
 | [distil-whisper/distil-large-v3](https://huggingface.co/distil-whisper/distil-large-v3) | Distilled Whisper, fast ASR |
 | [nvidia/parakeet-tdt-0.6b-v2](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2) | Very fast ASR, top English accuracy |
 | [nvidia/canary-1b-flash](https://huggingface.co/nvidia/canary-1b-flash) | Multilingual ASR plus translation, 1B |
 | [facebook/seamless-m4t-v2-large](https://huggingface.co/facebook/seamless-m4t-v2-large) | Speech to/from text, multilingual |
-| [facebook/musicgen-large](https://huggingface.co/facebook/musicgen-large) | Music generation |
+
+### Text-to-Speech
+
+| Model | Description |
+|-------|-------------|
+| [microsoft/speecht5_tts](https://huggingface.co/microsoft/speecht5_tts) | Lightweight TTS, fine-tunable per speaker |
+| [suno/bark](https://huggingface.co/suno/bark) | Highly expressive TTS with nonverbal sounds |
 | [Sesame/csm-1b](https://huggingface.co/Sesame/csm-1b) | Conversational speech model, natural TTS |
 | [nari-labs/Dia-1.6B](https://huggingface.co/nari-labs/Dia-1.6B) | Expressive TTS with voice cloning |
+
+### Audio Classification
+
+| Model | Task |
+|-------|------|
+| [MIT/ast-finetuned-audioset-10-10-0.4593](https://huggingface.co/MIT/ast-finetuned-audioset-10-10-0.4593) | Audio event classification (AudioSet) |
+| [superb/wav2vec2-base-superb-er](https://huggingface.co/superb/wav2vec2-base-superb-er) | Emotion recognition |
+
+### Music Generation
+
+| Model | Description |
+|-------|-------------|
+| [facebook/musicgen-large](https://huggingface.co/facebook/musicgen-large) | Text-to-music, stereo-capable |
+| [facebook/musicgen-stereo-large](https://huggingface.co/facebook/musicgen-stereo-large) | Native stereo output, higher fidelity |
 
 ---
 
 ## Multimodal
+
+### Vision-Language
 
 | Model | Capability |
 |-------|-----------|
@@ -239,9 +295,42 @@ A two-stage retrieve-then-rerank pipeline (embedding recall top-50, reranker top
 | [google/paligemma2-3b-pt-448](https://huggingface.co/google/paligemma2-3b-pt-448) | Fine-tunable VLM base, PaliGemma 2 |
 | [microsoft/Phi-4-multimodal-instruct](https://huggingface.co/microsoft/Phi-4-multimodal-instruct) | Vision plus audio plus text in a 5.6B model |
 
+### Audio-Text
+
+| Model | Capability |
+|-------|-----------|
+| [laion/clap-htsat-unfused](https://huggingface.co/laion/clap-htsat-unfused) | Audio-text similarity, retrieval and zero-shot classification |
+
 ---
 
-## Recommended Picks (Mid 2026)
+## Featured Models
+
+### Most Downloaded (all time)
+
+| Model | Why it matters |
+|-------|---------------|
+| [bert-base-uncased](https://huggingface.co/bert-base-uncased) | Foundational encoder, still used for fine-tuning baselines |
+| [gpt2](https://huggingface.co/gpt2) | Original GPT-2, reference decoder for teaching |
+| [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased) | Distilled BERT, ~40% smaller, ~60% faster |
+| [openai/clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) | Baseline image-text model, still widely deployed |
+
+### State-of-the-Art (July 2026)
+
+| Model | Category |
+|-------|----------|
+| [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b) | Open LLM |
+| [deepseek-ai/DeepSeek-V3.2](https://huggingface.co/deepseek-ai/DeepSeek-V3.2) | Open LLM |
+| [moonshotai/Kimi-K2-Instruct](https://huggingface.co/moonshotai/Kimi-K2-Instruct) | Open LLM |
+| [zai-org/GLM-4.6](https://huggingface.co/zai-org/GLM-4.6) | Open LLM |
+| [Qwen/Qwen3-Coder-480B-A35B-Instruct](https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct) | Code |
+| [Qwen/Qwen3-VL-235B-A22B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct) | Multimodal |
+| [black-forest-labs/FLUX.1-Kontext-dev](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev) | Image editing |
+| [openai/whisper-large-v3-turbo](https://huggingface.co/openai/whisper-large-v3-turbo) | ASR |
+| [nomic-ai/nomic-embed-text-v2-moe](https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe) | Embeddings |
+
+---
+
+## Recommended Picks (July 2026)
 
 - **Best Open LLM (frontier)** -> DeepSeek-V3.2 or Kimi-K2-Instruct
 - **Best Reasoning Model** -> DeepSeek-R1-0528 or Kimi-K2-Thinking-0905
@@ -252,6 +341,7 @@ A two-stage retrieve-then-rerank pipeline (embedding recall top-50, reranker top
 - **Best Image Generation** -> FLUX.1-dev
 - **Best Image Editing** -> FLUX.1-Kontext-dev
 - **Best ASR** -> Whisper Large v3 Turbo (balanced) or Parakeet-TDT-0.6B-v2 (speed)
+- **Best TTS** -> Sesame/csm-1b (conversational) or nari-labs/Dia-1.6B (voice cloning)
 - **Best Embeddings** -> nomic-embed-text-v2-moe (multilingual), gte-modernbert-base (English)
 - **Best Reranker** -> bge-reranker-v2-m3
 - **Best Open Reasoning on a Budget** -> DeepSeek-R1-Distill-Qwen-32B or Qwen3-30B-A3B-Thinking-2507
@@ -442,6 +532,72 @@ llama-cli -m ./models/Qwen3-30B-A3B-Instruct-2507-Q4_K_M.gguf \
   -p "Write a haiku about distributed systems" -n 128
 ```
 
+### Qwen3-VL multimodal inference
+
+```python
+from transformers import AutoProcessor, AutoModelForVision2Seq
+import torch
+from PIL import Image
+
+model_id = "Qwen/Qwen3-VL-30B-A3B-Instruct"
+processor = AutoProcessor.from_pretrained(model_id)
+model = AutoModelForVision2Seq.from_pretrained(
+    model_id, torch_dtype=torch.bfloat16, device_map="auto"
+)
+
+image = Image.open("chart.png").convert("RGB")
+messages = [
+    {"role": "user", "content": [
+        {"type": "image", "image": image},
+        {"type": "text", "text": "Summarize this chart in 3 bullet points."},
+    ]},
+]
+text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+inputs = processor(text=text, images=image, return_tensors="pt").to(model.device)
+out = model.generate(**inputs, max_new_tokens=256)
+print(processor.decode(out[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True))
+```
+
+### vLLM OpenAI-compatible server
+
+```bash
+# Serve any supported HF model with an OpenAI-compatible API
+vllm serve Qwen/Qwen3-30B-A3B-Instruct-2507 \
+  --tensor-parallel-size 1 \
+  --max-model-len 32768 \
+  --port 8000
+
+# Then call it like the OpenAI API
+curl http://localhost:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "messages": [{"role": "user", "content": "Say hi in 5 words."}],
+    "max_tokens": 32
+  }'
+```
+
+---
+
+## Standalone Snippet Files
+
+Every snippet above is also available as a runnable standalone file in [`snippets/`](./snippets). Each file is self-contained: install the listed deps, then `python snippets/<name>.py`.
+
+| File | What it does | Key deps |
+|------|--------------|---------|
+| [`snippets/01_chat_generation.py`](./snippets/01_chat_generation.py) | Single-shot chat with proper template + `torch.bfloat16` | `transformers`, `torch` |
+| [`snippets/02_streaming.py`](./snippets/02_streaming.py) | Token-by-token streaming via `TextIteratorStreamer` | `transformers`, `torch` |
+| [`snippets/03_vllm_inference.py`](./snippets/03_vllm_inference.py) | Batched high-throughput inference with vLLM | `vllm` |
+| [`snippets/04_embeddings_rerank_rag.py`](./snippets/04_embeddings_rerank_rag.py) | Two-stage retrieve-then-rerank RAG pipeline | `sentence-transformers`, `FlagEmbedding` |
+| [`snippets/05_whisper_turbo.py`](./snippets/05_whisper_turbo.py) | Batched long-audio transcription with Whisper Turbo | `transformers`, `torch` |
+| [`snippets/06_flux_image_gen.py`](./snippets/06_flux_image_gen.py) | Text-to-image generation with FLUX.1-dev | `diffusers`, `torch` |
+| [`snippets/07_flux_kontext_edit.py`](./snippets/07_flux_kontext_edit.py) | In-context image editing with FLUX.1-Kontext | `diffusers`, `torch`, `Pillow` |
+| [`snippets/08_lora_peft.py`](./snippets/08_lora_peft.py) | Wrap a causal LM with LoRA via PEFT | `peft`, `transformers`, `torch` |
+| [`snippets/09_bitsandbytes_4bit.py`](./snippets/09_bitsandbytes_4bit.py) | 4-bit NF4 quantized loading | `transformers`, `bitsandbytes`, `torch` |
+| [`snippets/10_llama_cpp_gguf.sh`](./snippets/10_llama_cpp_gguf.sh) | Download a GGUF and run it with `llama-cli` | `huggingface-hub`, `llama.cpp` |
+| [`snippets/11_qwen3_vl_multimodal.py`](./snippets/11_qwen3_vl_multimodal.py) | Vision-language Q&A with Qwen3-VL | `transformers`, `torch`, `Pillow` |
+| [`snippets/12_vllm_openai_server.sh`](./snippets/12_vllm_openai_server.sh) | Serve an HF model as an OpenAI-compatible endpoint | `vllm`, `curl` |
+
 ---
 
 ## Common Mistakes
@@ -510,6 +666,10 @@ DeepSeek-R1 and Kimi-K2-Thinking emit `<think>...</think>` blocks that consume o
 
 FLUX.1-dev is text-to-image only. For in-context image editing, use `FluxKontextPipeline` with FLUX.1-Kontext-dev. Trying to coax edits out of FLUX.1-dev with img2img gives blurry results and identity drift.
 
+### 16. Mixing Qwen3-VL image input formats
+
+Qwen3-VL expects the image as a `PIL.Image` (or list of URLs) passed through `processor(text=..., images=..., return_tensors="pt")`, not as a base64 string in the chat content. If you hand-craft the message dict with raw image bytes, the processor silently drops the image and the model hallucinates. Use the `{"type": "image", "image": pil_image}` content item and let the processor do the encoding.
+
 ---
 
 ## Contributing
@@ -523,13 +683,15 @@ Rules:
 - No dead or deprecated models
 - Prefer Apache 2.0 or MIT where possible
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide.
+
 ---
 
 ## License
 
-Creative Commons Attribution 4.0 International, see LICENSE.md.
+Creative Commons Attribution 4.0 International, see [LICENSE.md](./LICENSE.md).
 
 © Jehoshua 2026
 
 Star the repo if it helped.
-Last updated: June 2026
+Last updated: July 2026
